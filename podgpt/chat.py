@@ -3,6 +3,7 @@ import streamlit as st
 from components.qa_model import QA_Model
 from components.documents import Documents
 from chat_view_model import ChatViewModel
+from utils.file_manager import FileManager
 
 def create_application(view_model: ChatViewModel):
     st.set_page_config("PodGPT")
@@ -34,8 +35,15 @@ def create_chat(view_model: ChatViewModel):
     st.title("PodGPT")
 
     with st.sidebar:
-        st.info('Press this button if you want to clear the database', icon="ℹ️")
+        st.info('The following reference files were used to construct answer', icon="ℹ️")
+       
+        st.title('Reference Files')
+        for file_name in FileManager.getFiles():
+            st.write(file_name)
+        
+        st.divider()
         if st.button("Clear database", type="primary"):
+            st.warning("are you sure?")
             view_model.clear_database()
             del st.session_state.show_chat
             st.rerun()

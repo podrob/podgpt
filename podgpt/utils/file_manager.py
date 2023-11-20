@@ -24,4 +24,16 @@ class FileManager:
 
     def clear(self):
         self.remove_folder(FOLDER)
+
+    def getFiles():
+        # list to store files
+        file_names = []
+
+        # Iterate directory
+        for file_path in os.listdir(FOLDER):
+            # check if current file_path is a file
+            if os.path.isfile(os.path.join(FOLDER, file_path)):
+                # add filename to list
+                file_names.append(file_path)
+        return file_names
         
