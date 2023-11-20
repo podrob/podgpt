@@ -13,6 +13,8 @@ tqdm = "^4.66.1"
 faiss-cpu = "^1.7.4"
 streamlit = "^1.28.2"
 streamlit-chat = "^0.1.1"
+pypdf = "^3.17.1"
+docx2txt = "^0.8"
 
 
 [build-system]

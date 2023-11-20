@@ -9,13 +9,20 @@ from langchain.vectorstores import FAISS
 
 
 def load_and_split_documents(chunk_size, chunk_overlap):
-    loader = DirectoryLoader(
-        path='./docs',
-        # loader_cls=PyPDFLoader,
-        glob="**/*",
-        show_progress=False,
-        use_multithreading=True
-    )
+    documents = []
+    for file in os.listdir('docs'):
+        if file.endswith('.pdf'):
+            pdf_path = './docs/' + file
+            loader = PyPDFLoader(pdf_path)
+            documents.extend(loader.load())
+        # elif file.endswith('.docx') or file.endswith('.doc'):
+        #     doc_path = './docs/' + file
+        #     loader = Docx2txtLoader(doc_path)
+        #     documents.extend(loader.load())
+        elif file.endswith('.txt'):
+            text_path = './docs/' + file
+            loader = TextLoader(text_path)
+            documents.extend(loader.load())
 
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size = chunk_size,
@@ -23,9 +30,7 @@ def load_and_split_documents(chunk_size, chunk_overlap):
         length_function = len
     )
 
-    chunks = loader.load_and_split(
-        text_splitter=text_splitter
-    )
+    chunks = text_splitter.split_documents(documents)
     return chunks
 
 

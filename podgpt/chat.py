@@ -19,7 +19,7 @@ def create_setup(view_model: ChatViewModel):
 
     st.info("No database was found. Please add any files you want to constitute the database. Once done, click on Process")
     
-    uploaded_files = st.file_uploader("Please upload your files", type=["pdf", "txt", "jpg", "png"], accept_multiple_files=True)
+    uploaded_files = st.file_uploader("Please upload your files", type=["pdf", "txt", "docx", "doc"], accept_multiple_files=True)
     
     if st.button("Process", type="primary"):        
         with st.spinner('Moving your files into docs folder'):
