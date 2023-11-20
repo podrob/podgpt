@@ -40,7 +40,7 @@ class ChatViewModel:
         response, sources = self.qa_model.generate_response(prompt)
         return f"""
                 {response}    
-                &mdash;   
+                &mdash;&mdash;&mdash;&mdash;   
                 {Formatter.format_sources(sources)}
             """
     

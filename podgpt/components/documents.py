@@ -10,9 +10,6 @@ class Documents:
 
     def ingest_docs(self):
         chunks = self.document_splitter.create_chunks()
-        print("chunks here")
-        print(chunks)
-        print("end chunks")
         self.vector_store.create(chunks=chunks)
 
     def clear(self):

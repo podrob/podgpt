@@ -1,4 +1,5 @@
 import streamlit as st
+from pathlib import Path
 
 from components.qa_model import QA_Model
 from components.documents import Documents
@@ -39,11 +40,19 @@ def create_chat(view_model: ChatViewModel):
        
         st.title('Reference Files')
         for file_name in FileManager.getFiles():
-            st.write(file_name)
+            if file_name.endswith('.pdf'):
+                with open('./docs/' +str(file_name), "rb") as pdf_file:
+                    PDFbyte = pdf_file.read()
+                st.download_button(label=file_name,
+                                    data=PDFbyte,
+                                    file_name=file_name,
+                                    mime='application/octet-stream')
+                
+            elif file_name.endswith('.txt'):
+                st.download_button(file_name, Path('./docs/' + str(file_name)).read_text(), file_name)
         
         st.divider()
         if st.button("Clear database", type="primary"):
-            st.warning("are you sure?")
             view_model.clear_database()
             del st.session_state.show_chat
             st.rerun()
@@ -71,5 +80,6 @@ def create_chat(view_model: ChatViewModel):
         with st.chat_message("assistant"):
             message_placeholder = st.markdown("AI is thinking...")
             response = view_model.generate_response(prompt)
+            print(response)
             message_placeholder.markdown(response)
             st.session_state.messages.append({"role": "assistant", "content": response})
