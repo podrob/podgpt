@@ -18,6 +18,22 @@ def create_application(view_model: ChatViewModel):
         
 def create_setup(view_model: ChatViewModel):
     st.title("PodGPT Setup")
+    st.markdown("""
+        <style>
+        .st-emotion-cache-zq5wmm.ezrtsby0
+                { 
+                    visibility: hidden;
+                }   
+        .st-emotion-cache-h5rgaw.ea3mdgi1
+                {
+                    visibility: hidden;
+                } 
+        .st-emotion-cache-1dp5vir.ezrtsby1
+                {
+                    linear-gradient(90deg, rgb(143, 192, 67), rgb(127, 128, 131))
+                }
+        </style>
+        """, unsafe_allow_html=True)
 
     st.info("No database was found. Please add any files you want to constitute the database. Once done, click on Process")
     
@@ -34,6 +50,22 @@ def create_setup(view_model: ChatViewModel):
 
 def create_chat(view_model: ChatViewModel):
     st.title("PodGPT")
+    st.markdown("""
+        <style>
+        .st-emotion-cache-zq5wmm.ezrtsby0
+                { 
+                    visibility: hidden;
+                }   
+        .st-emotion-cache-h5rgaw.ea3mdgi1
+                {
+                    visibility: hidden;
+                }
+        .st-emotion-cache-1dp5vir.ezrtsby1
+                {
+                    linear-gradient(90deg, rgb(143, 192, 67), rgb(127, 128, 131))
+                }
+        </style>
+        """, unsafe_allow_html=True)
 
     with st.sidebar:
         st.info('The following reference files were used to construct answer', icon="ℹ️")
