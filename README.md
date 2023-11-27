@@ -5,6 +5,29 @@ This experimental project aims to create a localized chatbot. The bot is designe
 
 The project utilizes FAISS for similarity search and Falcon7b LLM for language modeling from [Hugging Face](https://huggingface.co/). Code is written in Python, using the [Langchain](https://python.langchain.com/docs/get_started/introduction) framework. [Poetry](https://python-poetry.org/) for dependancy management and [Streamlit](https://streamlit.io/) for it's UI.
 
+
+## Run via Docker
+
+```bash
+# Copy code
+git clone https://github.com/podrob/podgpt
+
+cd podgpt
+``````
+
+```bash
+# build image
+docker build -t podgpt .
+```
+
+```bash
+# run container via docker-compose
+docker-compose up
+```
+
+
+## Running locally
+
 ### Prerequisites
 Before getting started, ensure that you have the following installed on your system:
 
