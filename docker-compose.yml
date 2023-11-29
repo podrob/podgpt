@@ -3,7 +3,7 @@ services:
   podgpt:
     image: podgpt:latest
     build: ./app
-    command: streamlit run podgpt/main.py --server.port 8080
+    command: streamlit run podgpt/Home.py --server.port 8080
     volumes:
       - ./podgpt/:/app/podgpt
     ports:

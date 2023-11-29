@@ -78,7 +78,7 @@ poetry shell
 Run the Streamline server:
 
 ```bash
-streamlit run podgpt/main.py
+streamlit run podgpt/Home.py
 ```
 
 Access the chatbot at http://localhost:8501 in your web browser.

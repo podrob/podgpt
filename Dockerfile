@@ -32,4 +32,4 @@ COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
  
 COPY ./podgpt ./podgpt
  
-CMD ["streamlit", "run", "podgpt/main.py", "--server.port", "8080"]
+CMD ["streamlit", "run", "podgpt/Home.py", "--server.port", "8080"]
