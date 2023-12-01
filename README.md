@@ -6,12 +6,17 @@ This experimental project aims to create a localized chatbot. The bot is designe
 The project utilizes FAISS for similarity search and Falcon7b LLM for language modeling from [Hugging Face](https://huggingface.co/). Code is written in Python, using the [Langchain](https://python.langchain.com/docs/get_started/introduction) framework. [Poetry](https://python-poetry.org/) for dependancy management and [Streamlit](https://streamlit.io/) for it's UI.
 
 
+## Environment variables
+In order to run the chatbot, you need a valid API key for [Hugging Face](https://huggingface.co/). To generate one, sign-in to Hugging Face, or create an account if you don't already have one. Navigate to your profile 'Access Tokens' and generate a new token with 'read' access.
+
+Create a new file `./podgpt/.env` and paste in your API token here. There is an `.env.example` file there already for you to use as a template.
+
+
 ## Run via Docker
 
 ```bash
-# Copy code
+# copy code locally
 git clone https://github.com/podrob/podgpt
-
 cd podgpt
 ``````
 
@@ -34,7 +39,6 @@ Before getting started, ensure that you have the following installed on your sys
 **Python 3.x**: You can install it on macOS using Homebrew. Open Terminal and run:
 
 ```bash
-# Copy code
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew install python
@@ -43,7 +47,6 @@ brew install python
 **Poetry**: To install Poetry, run the following command in your terminal:
 
 ```bash
-# Copy code
 curl -sSL https://install.python-poetry.org | python3 -
 ```
 
@@ -51,16 +54,13 @@ curl -sSL https://install.python-poetry.org | python3 -
 Clone the repository:
 
 ```bash
-# Copy code
 git clone https://github.com/podrob/podgpt
-
 cd podgpt
 ``````
 
 Install dependencies using Poetry:
 
 ```bash
-# Copy code
 poetry install
 ```
 This will create a virtual environment and install all the required packages.
